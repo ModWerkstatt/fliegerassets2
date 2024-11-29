@@ -1,0 +1,62 @@
+function data()
+return { 
+	type = "ASSET_DEFAULT",
+	description = {
+		name = _("Bundeswehr Asset 2 Set"),			
+		description = _("Statische Flugzeuge der Bundeswehr.")
+	},
+	availability = {},
+	buildMode = "MULTI",
+	categories = { "Plane Assets" },
+	order = 212210101,
+	skipCollision = true,
+	autoRemovable = false,
+	params = {
+		{
+			key = "alphajet",
+			name = _("Alphajet 1973"),
+			uiType = "ICON_BUTTON",
+			values = { "ui/bundeswehr/leer.tga", "ui/bundeswehr/alphajet.tga", },
+			tooltip = _("Alphajet als Asset"),
+		},
+		{
+			key = "fiat91",
+			name = _("Fiat 91 Gina 1958 "),
+			uiType = "ICON_BUTTON",
+			values = { "ui/bundeswehr/leer.tga", "ui/bundeswehr/fiat91_1.tga", "ui/bundeswehr/fiat91_2.tga",},
+			tooltip = _("Fiat 91 Gina als Asset"),
+		},
+	},
+	updateFn = function(params)
+		local result = { }
+		result.models = {  }
+		local height = 0
+		
+		if params.alphajet == 0 then
+		result.models[#result.models+1] = {id = "asset/Bundeswehr/leer.mdl", transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, -50, 1, }, }
+		end
+		
+		if params.alphajet == 1 then
+		result.models[#result.models+1] = {id = "asset/Bundeswehr/alphajet_1.mdl", transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, }, }
+		end
+		
+		if params.fiat91 == 0 then
+		result.models[#result.models+1] = {id = "asset/Bundeswehr/leer.mdl", transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, -50, 1, }, }
+		end
+		
+		if params.fiat91 == 1 then
+		result.models[#result.models+1] = {id = "asset/Bundeswehr/fiat91_1.mdl", transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, }, }
+		end
+		
+		if params.fiat91 == 2 then
+		result.models[#result.models+1] = {id = "asset/Bundeswehr/fiat91_2.mdl", transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, }, }
+		end
+		
+		result.terrainAlignmentLists = { {
+			type = "EQUAL",
+			faces =  { }
+		} }
+		return result
+	end
+}
+end

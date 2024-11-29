@@ -1,0 +1,43 @@
+function data()
+return { 
+	type = "ASSET_DEFAULT",
+	description = {
+		name = _("WW1 Flugzeug Asset 2 Set"),			
+		description = _("Statische Flugzeuge der Luftwaffe im WW1.")
+	},
+	availability = {},
+	buildMode = "MULTI",
+	categories = { "Plane Assets" },
+	order = 212210101,
+	skipCollision = true,
+	autoRemovable = false,
+	params = {
+		{
+			key = "gotha",
+			name = _("Gotha D IV 1917"),
+			uiType = "ICON_BUTTON",
+			values = { "ui/militaer/leer.tga", "ui/militaer/gotha.tga", },
+			tooltip = _("Luftwaffe des WW1 als Asset"),
+		},
+	},
+	updateFn = function(params)
+		local result = { }
+		result.models = {  }
+		local height = 0
+		
+		if params.gotha == 0 then
+		result.models[#result.models+1] = {id = "asset/militaer/leer.mdl", transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, -100, 1, }, }
+		end
+		
+		if params.gotha == 1 then
+		result.models[#result.models+1] = {id = "asset/militaer/gotha-1.mdl", transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, }, }
+		end
+		
+		result.terrainAlignmentLists = { {
+			type = "EQUAL",
+			faces =  { }
+		} }
+		return result
+	end
+}
+end

@@ -1,0 +1,103 @@
+function data()
+return { 
+	type = "ASSET_DEFAULT",
+	description = {
+		name = _("Luftwaffe Asset 2 Set"),			
+		description = _("Statische Flugzeuge der Luftwaffe.")
+	},
+	availability = {},
+	buildMode = "MULTI",
+	categories = { "Plane Assets" },
+	order = 212210101,
+	skipCollision = true,
+	autoRemovable = false,
+	params = {
+		{
+			key = "he111",
+			name = _("Heinkel He 111 1939"),
+			uiType = "ICON_BUTTON",
+			values = { "ui/luftwaffe/leer.tga", "ui/luftwaffe/he111.tga", },
+			tooltip = _("Luftwaffe als Asset"),
+		},
+		{
+			key = "bf110",
+			name = _("Messerschmidt Bf 110 1939"),
+			uiType = "ICON_BUTTON",
+			values = { "ui/luftwaffe/leer.tga", "ui/luftwaffe/bf110.tga", },
+			tooltip = _("Luftwaffe als Asset"),
+		},
+		{
+			key = "bu133",
+			name = _("Bücker 133 1939"),
+			uiType = "ICON_BUTTON",
+			values = { "ui/luftwaffe/leer.tga", "ui/luftwaffe/bu133-1.tga", "ui/luftwaffe/bu133-2.tga", "ui/luftwaffe/bu133-3.tga", "ui/luftwaffe/bu133-4.tga",},
+			tooltip = _("Luftwaffe als Asset"),
+		},
+		{
+			key = "he117",
+			name = _("Heinkel 177 Greif 1939"),
+			uiType = "ICON_BUTTON",
+			values = { "ui/luftwaffe/leer.tga", "ui/luftwaffe/he117-1.tga", "ui/luftwaffe/he117-2.tga",},
+			tooltip = _("Luftwaffe als Asset"),
+		},
+	},
+	updateFn = function(params)
+		local result = { }
+		result.models = {  }
+		local height = 0
+		
+		if params.he111 == 0 then
+		result.models[#result.models+1] = {id = "asset/Luftwaffe/leer.mdl", transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, -100, 1, }, }
+		end
+		
+		if params.he111 == 1 then
+		result.models[#result.models+1] = {id = "asset/Luftwaffe/he111_1.mdl", transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, }, }
+		end
+		
+		if params.bf110 == 0 then
+		result.models[#result.models+1] = {id = "asset/Luftwaffe/leer.mdl", transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, -100, 1, }, }
+		end
+		
+		if params.bf110 == 1 then
+		result.models[#result.models+1] = {id = "asset/Luftwaffe/bf110_1.mdl", transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, }, }
+		end
+		
+		if params.bu133 == 0 then
+		result.models[#result.models+1] = {id = "asset/Luftwaffe/leer.mdl", transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, -100, 1, }, }
+		end
+		
+		if params.bu133 == 1 then
+		result.models[#result.models+1] = {id = "asset/Luftwaffe/bu133-1.mdl", transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, }, }
+		end
+		
+		if params.bu133 == 2 then
+		result.models[#result.models+1] = {id = "asset/Luftwaffe/bu133-2.mdl", transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, }, }
+		end
+		
+		if params.bu133 == 3 then
+		result.models[#result.models+1] = {id = "asset/Luftwaffe/bu133-3.mdl", transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, }, }
+		end
+		
+		if params.bu133 == 4 then
+		result.models[#result.models+1] = {id = "asset/Luftwaffe/bu133-4.mdl", transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, }, }
+		end
+		
+		if params.he117 == 0 then
+		result.models[#result.models+1] = {id = "asset/Luftwaffe/leer.mdl", transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, -100, 1, }, }
+		end
+		
+		if params.he117 == 1 then
+		result.models[#result.models+1] = {id = "asset/Luftwaffe/he117_1.mdl", transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, }, }
+		end
+		
+		if params.he117 == 2 then
+		result.models[#result.models+1] = {id = "asset/Luftwaffe/he117_2.mdl", transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, }, }
+		end
+		result.terrainAlignmentLists = { {
+			type = "EQUAL",
+			faces =  { }
+		} }
+		return result
+	end
+}
+end

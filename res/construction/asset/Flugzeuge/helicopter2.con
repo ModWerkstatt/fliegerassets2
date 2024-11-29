@@ -1,0 +1,51 @@
+function data()
+return { 
+	type = "ASSET_DEFAULT",
+	description = {
+		name = _("Hubschrauber Asset 2 Set"),			
+		description = _("Statische Hubschrauber.")
+	},
+	availability = {},
+	buildMode = "MULTI",
+	categories = { "Plane Assets" },
+	order = 212210101,
+	skipCollision = true,
+	autoRemovable = false,
+	params = {
+		{
+			key = "sh34",
+			name = _("Sikorsky SH 34 1954"),
+			uiType = "ICON_BUTTON",
+			values = { "ui/heli/leer.tga", "ui/heli/sh34_1.tga", "ui/heli/sh34_2.tga", "ui/heli/sh34_3.tga", },
+			tooltip = _("Sikorsky SH 34 als Asset"),
+		},
+	},
+	updateFn = function(params)
+		local result = { }
+		result.models = {  }
+		local height = 0
+		
+		if params.sh34 == 0 then
+		result.models[#result.models+1] = {id = "asset/Bundeswehr/leer.mdl", transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, -100, 1, }, }
+		end
+		
+		if params.sh34 == 1 then
+		result.models[#result.models+1] = {id = "asset/heli/sh34_1.mdl", transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, }, }
+		end
+		
+		if params.sh34 == 2 then
+		result.models[#result.models+1] = {id = "asset/heli/sh34_2.mdl", transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, }, }
+		end
+		
+		if params.sh34 == 3 then
+		result.models[#result.models+1] = {id = "asset/heli/sh34_3.mdl", transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, }, }
+		end
+		
+		result.terrainAlignmentLists = { {
+			type = "EQUAL",
+			faces =  { }
+		} }
+		return result
+	end
+}
+end
